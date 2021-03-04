@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<p id="demo"></p>
+
+<script>
+
+var start= new Date("mon march 1 2021 12:30:60 GMT+0530");
+var x = setInterval(function() {
+var stop= new Date();
+
+var subtime = stop.getTime() - start.getTime();
+
+
+var diff = subtime;
+var hh = Math.floor(diff / 1000 / 60 / 60);
+diff -= hh * 1000 * 60 * 60;
+var mm = Math.floor(diff / 1000 / 60);
+diff -= mm * 1000 * 60;
+var ss = Math.floor(diff / 1000);
+diff -= ss * 1000;
+
+document.getElementById("demo").innerHTML = (hh + ":" + mm + ":" + ss);
+if (diff < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED"
+  
+}
+}, 1000);
+</script>
+
+</body>
+</html>
